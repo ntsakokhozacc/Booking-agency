@@ -11,6 +11,7 @@ python
 running the project
 pip install virtualenvwrapper-win
 mkvirtualenv test
+python3 -m pip install --upgrade pillow
 
 Install
 pip install django
