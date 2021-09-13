@@ -127,7 +127,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'telusko/assets')
 
-MEDIA_URL ='/media/'
+MEDIA_URL ='/MEDIA/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Default primary key field type

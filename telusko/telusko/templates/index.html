@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 {% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +32,21 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="index.html">Home</a></li>
+									<!--
 									<li><a href="about.html">About us</a></li>
 									<li><a href="#">Services</a></li>
 									<li><a href="news.html">News</a></li>
+									!-->
 									<li><a href="contact.html">Contact</a></li>
+									
+									<!-- Authenticates if whether a user is logged on, and display their name along wiht the logout button-->
+									{% if user.is_authenticated %}
+									<li>Hello, {{user.first_name}}</li>
+									<li><a href="accounts/logout">Logout</a></li>
+									{%else%}
+									<li><a href="accounts/register">Register</a></li>
+									<li><a href="accounts/login">Login</a></li>
+									{%endif%}
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 084 985 9695</div>
@@ -73,7 +84,7 @@
 		<div class="menu_content">
 			<ul>
 				<li><a href="{% static 'inex.html' %}">Home</a></li>
-				<li><a href="{% static 'about.html' %}">About us</a></li>
+				<!<li><a href="{% static 'about.html' %}">About us</a></li>
 				<li><a href="{% static '#' %}">Services</a></li>
 				<li><a href="{% static 'news.html' %}">News</a></li>
 				<li><a href="{% static 'contact.html' %}">Contact</a></li>
@@ -118,7 +129,7 @@
 
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="background_image" style="background-image:url(images/home_slider.jpg)"></div>
+					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -134,7 +145,7 @@
 
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="background_image" style="background-image:url(images/home_slider.jpg)"></div>
+					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -188,7 +199,7 @@
 	<!-- Intro -->
 
 	<div class="intro">
-		<div class="intro_background" style="background-image:url(images/intro.png)"></div>
+		<div class="intro_background" style="background-image:url({% static 'images/intro.png' %})"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -253,7 +264,7 @@
 						<!-- Destination -->
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{{dest.img}}" alt="">
+								<img src="{{dest.img.url}}" alt="">
 
 								{%if dest.offer == True%}
 								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
